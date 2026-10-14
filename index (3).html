@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c2c">
+  <meta name="author" content="Sanchit Pande">
+  <meta name="description" content="Sanchit Pande — PGDM Financial Management candidate focused on financial analysis, corporate governance research, equity derivatives and data-led decision support.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sanchit Pande — Finance & Governance Analytics">
+  <meta property="og:description" content="Finance portfolio featuring corporate governance research, financial-performance analysis and a Governance-Performance Analytics System concept.">
+  <title>Sanchit Pande — Finance & Governance Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #101c2c;
+      --ink-soft: #26374b;
+      --paper: #f6f5f1;
+      --white: #fffefa;
+      --muted: #667385;
+      --line: #dedfd9;
+      --teal: #126f68;
+      --teal-light: #dceee8;
+      --lime: #d7f078;
+      --gold: #cf9b46;
+      --shadow: 0 18px 48px rgba(16, 28, 44, .08);
+      --radius: 22px;
+      --mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --display: 'Manrope', var(--sans);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .wrap { width: min(1160px, calc(100% - 44px)); margin-inline: auto; }
+    .mono { font-family: var(--mono); letter-spacing: .035em; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--teal); font: 500 .76rem var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 23px; height: 1px; background: currentColor; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(246,245,241,.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(16,28,44,.08); }
+    .nav-shell { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; gap: 11px; align-items: center; text-decoration: none; font: 800 .94rem var(--display); letter-spacing: -.035em; white-space: nowrap; }
+    .brand-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 12px; color: var(--lime); background: var(--ink); font: 700 .76rem var(--mono); letter-spacing: -.05em; }
+    .nav-links { display: flex; align-items: center; gap: clamp(14px, 2.1vw, 27px); }
+    .nav-links a { text-decoration: none; color: #4b5969; font-size: .82rem; font-weight: 600; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links .nav-cta { color: var(--white); background: var(--ink); padding: 10px 15px; border-radius: 100px; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: var(--white); border-radius: 12px; padding: 9px 12px; color: var(--ink); font: 600 .85rem var(--sans); }
+
+    .hero { position: relative; overflow: hidden; padding: 78px 0 66px; background: var(--ink); color: var(--white); }
+    .hero::before { content: ''; position: absolute; width: 630px; height: 630px; right: -190px; top: -300px; border: 1px solid rgba(215,240,120,.14); border-radius: 50%; box-shadow: 0 0 0 55px rgba(215,240,120,.025), 0 0 0 110px rgba(215,240,120,.02); pointer-events: none; }
+    .hero::after { content: ''; position: absolute; inset: auto 0 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(215,240,120,.55), transparent); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr); align-items: center; gap: clamp(40px, 7vw, 90px); }
+    .hero .eyebrow { color: var(--lime); }
+    .availability { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px; padding: 7px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 100px; color: #dce4e9; font-size: .76rem; }
+    .pulse { width: 7px; height: 7px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 0 4px rgba(215,240,120,.12); }
+    h1 { max-width: 720px; margin: 15px 0 14px; font: 800 clamp(3.2rem, 7vw, 6.2rem)/.99 var(--display); letter-spacing: -.075em; }
+    h1 span { color: var(--lime); }
+    .hero-role { color: #b8c6d2; margin: 0; max-width: 600px; font-size: clamp(1.1rem, 2.1vw, 1.35rem); letter-spacing: -.015em; }
+    .hero-copy { color: #a5b2c0; max-width: 610px; margin: 22px 0 0; font-size: .98rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+    .btn { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 17px; border: 1px solid transparent; border-radius: 100px; text-decoration: none; font-size: .86rem; font-weight: 700; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--lime); color: var(--ink); }
+    .btn-primary:hover { background: #e4ff8b; }
+    .btn-ghost { border-color: rgba(255,255,255,.24); color: var(--white); }
+    .btn-ghost:hover { border-color: var(--lime); }
+    .btn-dark { color: var(--white); background: var(--ink); }
+    .btn-outline { color: var(--ink); border-color: var(--line); background: transparent; }
+    .btn svg { width: 16px; height: 16px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 36px; color: #a5b2c0; font: .71rem var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-meta svg { width: 15px; height: 15px; color: var(--lime); }
+    .hero-panel { position: relative; padding: 24px; border: 1px solid rgba(255,255,255,.14); border-radius: 26px; background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025)); box-shadow: 0 35px 80px rgba(0,0,0,.16); }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: #b3c0ca; font: .69rem var(--mono); text-transform: uppercase; letter-spacing: .07em; }
+    .panel-badge { color: var(--lime); border: 1px solid rgba(215,240,120,.24); border-radius: 6px; padding: 5px 7px; }
+    .panel-number { margin: 28px 0 2px; font: 700 clamp(2.4rem, 3.8vw, 3.6rem)/1 var(--display); letter-spacing: -.075em; white-space: nowrap; }
+    .panel-number small { font: 500 .85rem var(--mono); color: #b5c0c9; letter-spacing: 0; }
+    .panel-sub { color: #acb8c3; font-size: .83rem; margin: 8px 0 18px; }
+    .mini-chart { width: 100%; height: 150px; display: block; overflow: visible; }
+    .chart-years { display: flex; justify-content: space-between; margin-top: -2px; color: #a5b2c0; font: .64rem var(--mono); }
+    .panel-divider { margin: 20px 0 17px; border: 0; border-top: 1px solid rgba(255,255,255,.12); }
+    .panel-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .panel-foot small { display: block; color: #9caab7; font-size: .68rem; }
+    .panel-foot strong { display: block; color: var(--white); margin-top: 3px; font-size: .9rem; font-weight: 600; }
+    .panel-foot .up { color: var(--lime); }
+
+    .ticker { background: var(--lime); color: var(--ink); overflow: hidden; }
+    .ticker-inner { min-height: 51px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; padding-block: 10px; font: 500 .69rem var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+    .ticker span { display: inline-flex; align-items: center; gap: 9px; }
+    .ticker span::before { content: '✳'; font-size: .9rem; }
+
+    section.section { padding: 98px 0; }
+    section.section.alt { background: #eeeee8; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 34px; }
+    .section-head h2 { margin: 9px 0 0; font: 800 clamp(2.1rem, 4vw, 3.4rem)/1.06 var(--display); letter-spacing: -.065em; }
+    .section-head p { max-width: 475px; margin: 0; color: var(--muted); font-size: .94rem; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; }
+    .about-copy, .interest-card { border-radius: var(--radius); padding: clamp(25px, 4vw, 42px); }
+    .about-copy { background: var(--white); border: 1px solid #e7e6df; }
+    .about-copy p { color: #506073; margin: 0 0 16px; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .about-copy strong { color: var(--ink); }
+    .interest-card { background: var(--teal); color: white; display: flex; flex-direction: column; justify-content: space-between; }
+    .interest-card h3 { margin: 0; font: 700 1.3rem var(--display); letter-spacing: -.04em; }
+    .interest-list { list-style: none; margin: 21px 0 0; padding: 0; }
+    .interest-list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.19); color: #e5f0eb; font-size: .89rem; }
+    .interest-list li:last-child { border-bottom: 0; }
+    .interest-list li::before { content: '↗'; color: var(--lime); font: 500 1rem var(--mono); }
+
+    .project-feature { overflow: hidden; border-radius: 28px; background: var(--white); border: 1px solid #e4e4dd; box-shadow: var(--shadow); }
+    .project-banner { display: grid; grid-template-columns: 1.2fr .8fr; min-height: 240px; color: white; background: var(--ink); }
+    .project-banner-copy { padding: clamp(28px, 5vw, 48px); }
+    .project-banner h3 { max-width: 630px; font: 800 clamp(1.65rem, 3.2vw, 2.55rem)/1.12 var(--display); letter-spacing: -.055em; margin: 14px 0 12px; }
+    .project-banner p { margin: 0; color: #b2bfca; max-width: 590px; font-size: .9rem; }
+    .project-banner .eyebrow { color: var(--lime); }
+    .project-art { position: relative; min-height: 240px; overflow: hidden; display: grid; place-items: center; background: radial-gradient(circle at 45% 52%, rgba(18,111,104,.5), transparent 43%), linear-gradient(135deg, #142438, #172c40); }
+    .orbit { position: absolute; width: 220px; height: 220px; border: 1px solid rgba(215,240,120,.3); border-radius: 50%; transform: rotate(-30deg) scaleX(1.35); }
+    .orbit.two { width: 170px; height: 170px; transform: rotate(38deg) scaleX(1.35); border-color: rgba(255,255,255,.25); }
+    .orbit.three { width: 115px; height: 115px; border-color: rgba(215,240,120,.4); }
+    .orbit-dot { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 22px rgba(215,240,120,.7); transform: translate(81px,-65px); }
+    .art-label { position: relative; padding: 11px 14px; border: 1px solid rgba(255,255,255,.18); border-radius: 9px; background: rgba(16,28,44,.62); backdrop-filter: blur(6px); font: .66rem var(--mono); color: #e6f4d1; letter-spacing: .08em; }
+    .project-body { padding: clamp(24px, 4vw, 42px); }
+    .project-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 22px; }
+    .pill { display: inline-flex; align-items: center; padding: 6px 10px; border: 1px solid #dfe2dc; border-radius: 100px; color: #4d5b6a; background: #fafaf6; font-size: .72rem; font-weight: 600; }
+    .project-body-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; }
+    .project-body h4 { margin: 0 0 12px; font: 700 1.07rem var(--display); letter-spacing: -.03em; }
+    .project-body p { color: #5e6b7a; font-size: .91rem; margin: 0 0 13px; }
+    .check-list { list-style: none; padding: 0; margin: 0; }
+    .check-list li { position: relative; padding: 0 0 11px 23px; color: #506073; font-size: .87rem; }
+    .check-list li::before { content: '↗'; position: absolute; left: 0; color: var(--teal); font: 600 .9rem var(--mono); }
+    .note { margin-top: 26px; padding: 17px 19px; border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; background: #f8f2e5; color: #675b45; font-size: .81rem; }
+    .note strong { color: #4e422f; }
+
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 25px; }
+    .metric-card { padding: 23px; border: 1px solid #dedfd8; border-radius: 18px; background: var(--white); }
+    .metric-card .label { color: var(--muted); font: .68rem var(--mono); text-transform: uppercase; letter-spacing: .045em; }
+    .metric-card strong { display: block; margin: 14px 0 5px; font: 800 clamp(1.55rem, 2.7vw, 2.25rem)/1 var(--display); letter-spacing: -.065em; }
+    .metric-card p { margin: 0; color: var(--muted); font-size: .79rem; }
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .data-card { min-width: 0; padding: 27px; border: 1px solid #dedfd8; border-radius: 20px; background: var(--white); }
+    .data-card h3 { margin: 0; font: 700 1.08rem var(--display); letter-spacing: -.03em; }
+    .data-card .sub { color: var(--muted); font-size: .78rem; margin: 4px 0 21px; }
+    .bar-chart { display: grid; gap: 15px; }
+    .bar-row { display: grid; grid-template-columns: 57px 1fr 49px; gap: 11px; align-items: center; font: .73rem var(--mono); }
+    .bar-year { color: #647182; }
+    .bar-track { background: #eeeee9; border-radius: 4px; height: 10px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 4px; background: var(--teal); transform-origin: left; animation: grow .9s ease-out both; }
+    .bar-row:first-child .bar-fill { background: #a8bab4; }
+    .bar-value { text-align: right; color: var(--ink); }
+    .ratio-list { display: grid; gap: 0; }
+    .ratio-row { display: grid; grid-template-columns: minmax(90px, 1fr) .6fr .6fr; gap: 12px; align-items: center; padding: 13px 0; border-bottom: 1px solid #ecece6; font-size: .78rem; }
+    .ratio-row:last-child { border-bottom: 0; }
+    .ratio-row.header { padding-top: 0; font: .64rem var(--mono); color: var(--muted); text-transform: uppercase; }
+    .ratio-row span:not(:first-child) { text-align: right; font-family: var(--mono); }
+    .ratio-row .final { color: var(--teal); font-weight: 500; }
+    .corr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px; }
+    .corr-card { padding: 17px 19px; background: var(--ink); border-radius: 15px; color: white; }
+    .corr-card small { display: block; color: #aebbc5; font-size: .71rem; }
+    .corr-card strong { display: block; margin: 8px 0 3px; color: var(--lime); font: 700 1.65rem var(--display); letter-spacing: -.04em; }
+    .corr-card span { color: #d2dbe0; font-size: .7rem; }
+    .data-disclaimer { margin: 20px 0 0; color: var(--muted); font-size: .79rem; }
+
+    .experience-grid { display: grid; grid-template-columns: .5fr 1.5fr; gap: 35px; }
+    .timeline-label { padding-top: 7px; color: var(--teal); font: .73rem var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+    .timeline-list { border-left: 1px solid #d4d8d0; }
+    .timeline-item { position: relative; padding: 0 0 35px 29px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { position: absolute; left: -5px; top: 8px; width: 9px; height: 9px; border-radius: 50%; content: ''; background: var(--teal); box-shadow: 0 0 0 5px var(--teal-light); }
+    .timeline-item h3 { margin: 0 0 4px; font: 700 1.2rem var(--display); letter-spacing: -.035em; }
+    .timeline-item .org { margin: 0 0 10px; color: var(--teal); font-size: .88rem; font-weight: 700; }
+    .timeline-item .date { display: inline-block; margin-bottom: 11px; color: #74808b; font: .68rem var(--mono); }
+    .timeline-item p, .timeline-item li { color: #586777; font-size: .88rem; }
+    .timeline-item ul { padding-left: 19px; margin: 10px 0 0; }
+    .timeline-item li { padding: 0 0 7px 3px; }
+    .two-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .soft-card { padding: 27px; border-radius: 20px; background: var(--white); border: 1px solid #e1e1db; }
+    .soft-card h3 { margin: 0 0 8px; font: 700 1.08rem var(--display); }
+    .soft-card p { margin: 0; color: #5e6b7a; font-size: .88rem; }
+    .soft-card .mini-tag { display: inline-block; margin-bottom: 17px; padding: 5px 8px; color: var(--teal); background: var(--teal-light); border-radius: 6px; font: .65rem var(--mono); text-transform: uppercase; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .skill-card { padding: 25px; border: 1px solid #dedfd8; border-radius: 18px; background: var(--white); }
+    .skill-card-head { display: flex; align-items: center; gap: 13px; margin-bottom: 18px; }
+    .skill-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; background: var(--teal-light); color: var(--teal); flex-shrink: 0; }
+    .skill-icon svg { width: 19px; height: 19px; }
+    .skill-card h3 { margin: 0; font: 700 1rem var(--display); }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { padding: 7px 10px; border: 1px solid #e4e5df; border-radius: 8px; background: #fbfbf8; color: #4d5b6b; font-size: .75rem; }
+
+    .credential-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; }
+    .credential-main { display: flex; gap: 22px; padding: 30px; border-radius: 22px; background: var(--ink); color: white; }
+    .credential-seal { display: grid; place-items: center; flex: 0 0 60px; height: 60px; border: 1px solid rgba(215,240,120,.42); border-radius: 18px; color: var(--lime); font: 700 .75rem var(--mono); }
+    .credential-main h3 { margin: 0 0 7px; font: 700 1.14rem var(--display); letter-spacing: -.035em; }
+    .credential-main p { margin: 0 0 13px; color: #afbdc7; font-size: .84rem; }
+    .credential-details { display: flex; flex-wrap: wrap; gap: 16px; color: #d9e2e6; font-size: .76rem; }
+    .credential-details strong { color: var(--lime); font-family: var(--mono); font-weight: 500; }
+    .credential-side { padding: 27px; border: 1px solid #dedfd8; border-radius: 22px; background: var(--white); }
+    .credential-side h3 { margin: 0 0 15px; font: 700 1rem var(--display); }
+    .course { padding: 13px 0; border-bottom: 1px solid #ecece6; }
+    .course:last-child { border-bottom: 0; padding-bottom: 0; }
+    .course strong { display: block; font-size: .85rem; }
+    .course span { color: var(--muted); font-size: .76rem; }
+
+    .education-list { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .education-card { padding: 25px; border: 1px solid #dedfd8; border-radius: 18px; background: var(--white); }
+    .education-card .date { color: var(--teal); font: .68rem var(--mono); text-transform: uppercase; }
+    .education-card h3 { margin: 10px 0 7px; font: 700 1.1rem var(--display); letter-spacing: -.035em; }
+    .education-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+
+    .contact { padding: 0 0 86px; background: #eeeee8; }
+    .contact-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 35px; padding: clamp(32px, 6vw, 60px); border-radius: 28px; color: white; background: var(--teal); position: relative; overflow: hidden; }
+    .contact-panel::after { content: ''; position: absolute; width: 350px; height: 350px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; right: -80px; top: -190px; box-shadow: 0 0 0 38px rgba(255,255,255,.04), 0 0 0 76px rgba(255,255,255,.035); }
+    .contact-panel .eyebrow { color: var(--lime); }
+    .contact-panel h2 { position: relative; z-index: 1; margin: 10px 0 10px; max-width: 650px; font: 800 clamp(2.2rem, 4.5vw, 3.6rem)/1.05 var(--display); letter-spacing: -.065em; }
+    .contact-panel p { position: relative; z-index: 1; max-width: 565px; margin: 0; color: #d5e8e2; font-size: .94rem; }
+    .contact-panel .btn { position: relative; z-index: 1; white-space: nowrap; }
+    footer { padding: 24px 0; background: var(--ink); color: #a8b4bf; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; font-size: .75rem; }
+    .footer-inner strong { color: white; font-weight: 600; }
+    .footer-links { display: flex; gap: 17px; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--lime); }
+    .back-top { text-decoration: none; font-family: var(--mono); color: var(--lime); }
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @media (max-width: 920px) {
+      .nav-links { gap: 13px; }
+      .nav-links a { font-size: .76rem; }
+      .hero-grid { grid-template-columns: 1fr .8fr; gap: 28px; }
+      .metric-grid { grid-template-columns: repeat(2,1fr); }
+      .corr-grid { grid-template-columns: repeat(2,1fr); }
+      .section-head { align-items: start; flex-direction: column; }
+      .project-banner { grid-template-columns: 1fr .65fr; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 32px, 1160px); }
+      .nav-shell { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { position: absolute; top: 67px; right: 16px; left: 16px; display: none; padding: 13px; flex-direction: column; align-items: stretch; gap: 2px; background: var(--white); border: 1px solid var(--line); border-radius: 17px; box-shadow: var(--shadow); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px 12px; border-radius: 9px; font-size: .88rem; }
+      .nav-links a:hover { background: #f1f4ee; }
+      .nav-links .nav-cta { color: white; text-align: center; margin-top: 4px; }
+      .hero { padding: 58px 0 47px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(3.5rem, 16vw, 5.3rem); }
+      .hero-panel { max-width: 480px; }
+      section.section { padding: 68px 0; }
+      .about-grid, .project-body-grid, .data-grid, .two-card-grid, .skills-grid, .credential-grid, .education-list { grid-template-columns: 1fr; }
+      .project-banner { grid-template-columns: 1fr; }
+      .project-art { min-height: 190px; }
+      .experience-grid { grid-template-columns: 1fr; gap: 18px; }
+      .timeline-label { padding-top: 0; }
+      .metric-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+      .metric-card { padding: 17px; }
+      .metric-card strong { font-size: 1.65rem; }
+      .corr-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-panel { grid-template-columns: 1fr; }
+      .contact-panel::after { right: -220px; }
+      .contact-panel .btn { justify-self: start; }
+      .footer-inner { flex-wrap: wrap; }
+    }
+    @media (max-width: 400px) {
+      .metric-grid, .corr-grid { grid-template-columns: 1fr 1fr; }
+      .metric-card strong { font-size: 1.45rem; }
+      .metric-card .label { font-size: .61rem; }
+      .credential-main { flex-direction: column; }
+      .panel-number { font-size: 3rem; }
+      .ticker-inner { justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ---- polish layer ---- */
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 50; background: linear-gradient(90deg, var(--teal), var(--lime)); }
+    .nav-links a.active:not(.nav-cta) { color: var(--teal); }
+    .hero::before { animation: drift 18s ease-in-out infinite alternate; }
+    @keyframes drift { to { transform: translate(-28px, 22px) rotate(8deg); } }
+    h1 span { background: linear-gradient(100deg, var(--lime), #f2ffb8 60%, var(--lime)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-panel { transition: transform .3s ease; }
+    .hero-panel:hover { transform: translateY(-4px); }
+    .metric-card, .soft-card, .skill-card, .education-card, .data-card, .doc-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .metric-card:hover, .soft-card:hover, .skill-card:hover, .education-card:hover, .doc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #cfd8d2; }
+    .tag { transition: background .2s, color .2s, border-color .2s; }
+    .tag:hover { background: var(--teal-light); border-color: var(--teal); color: var(--teal); }
+    .btn svg { flex-shrink: 0; }
+
+    .panel-card { padding: clamp(22px, 3.5vw, 34px); border: 1px solid #dedfd8; border-radius: 22px; background: var(--white); }
+    .panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 24px; }
+    .panel-head h3 { margin: 8px 0 0; font: 800 1.5rem var(--display); letter-spacing: -.045em; }
+    .year-tabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 5px; border-radius: 100px; background: #eeeee8; }
+    .year-tabs button { border: 0; background: transparent; padding: 8px 13px; border-radius: 100px; font: 500 .72rem var(--mono); color: #55636f; cursor: pointer; transition: background .2s, color .2s; }
+    .year-tabs button:hover { color: var(--ink); }
+    .year-tabs button[aria-selected="true"] { background: var(--ink); color: var(--lime); }
+    .explorer-body { display: grid; grid-template-columns: 1.4fr .6fr; gap: clamp(22px, 4vw, 44px); align-items: start; }
+    .dim-row { display: grid; grid-template-columns: 170px 1fr 92px; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid #efefe9; font-size: .8rem; }
+    .dim-row:last-child { border-bottom: 0; }
+    .dim-name { color: var(--ink-soft); font-weight: 600; }
+    .dim-track { height: 10px; border-radius: 6px; background: #eeeee9; overflow: hidden; }
+    .dim-fill { height: 100%; border-radius: 6px; background: var(--teal); transition: width .6s cubic-bezier(.2,.8,.2,1); }
+    .dim-val { text-align: right; font: .74rem var(--mono); color: var(--ink); white-space: nowrap; }
+    .dim-val em { font-style: normal; margin-left: 6px; font-size: .66rem; }
+    .dim-val .up { color: var(--teal); } .dim-val .down { color: #b4533a; }
+    .explorer-side { padding: 22px; border-radius: 18px; background: var(--ink); color: white; }
+    .explorer-side .big { font: 800 2.9rem/1 var(--display); letter-spacing: -.07em; color: var(--lime); }
+    .explorer-side .big small { font: 500 .85rem var(--mono); color: #aebbc5; letter-spacing: 0; }
+    .explorer-side .big-sub { margin-top: 8px; font: .68rem var(--mono); color: #aebbc5; text-transform: uppercase; letter-spacing: .05em; }
+    .explorer-side p { margin: 16px 0 0; color: #cfd9df; font-size: .82rem; line-height: 1.55; }
+    .spark-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .spark { padding: 16px; border: 1px solid #e8e8e1; border-radius: 16px; background: #fbfbf8; }
+    .spark .label { color: var(--muted); font: .64rem var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+    .spark .range { margin: 8px 0 6px; font: 700 1.05rem var(--display); letter-spacing: -.04em; }
+    .spark .range i { font-style: normal; color: var(--muted); font-weight: 500; }
+    .spark svg { width: 100%; height: 56px; display: block; overflow: visible; }
+    .spark .trend { margin-top: 8px; display: inline-block; padding: 3px 8px; border-radius: 6px; background: var(--teal-light); color: var(--teal); font: .62rem var(--mono); text-transform: uppercase; }
+    .spark .trend.flat { background: #eee9dc; color: #7a6a43; }
+
+    .docs-head { margin: 56px 0 18px; }
+    .docs-head h3 { margin: 8px 0 0; font: 800 1.6rem var(--display); letter-spacing: -.05em; }
+    .docs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .doc-card { display: flex; flex-direction: column; padding: 24px; border: 1px solid #dedfd8; border-radius: 20px; background: var(--white); }
+    .doc-icon { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 16px; border-radius: 14px; background: var(--teal-light); color: var(--teal); }
+    .doc-icon svg { width: 23px; height: 23px; }
+    .doc-thumb { display: block; margin-bottom: 16px; overflow: hidden; border-radius: 12px; border: 1px solid #dedfd8; background: #e9e9e3; }
+    .doc-thumb img { display: block; width: 100%; height: 120px; object-fit: cover; object-position: top; transition: transform .4s ease; }
+    .doc-thumb:hover img { transform: scale(1.05); }
+    .doc-card .mini-tag { align-self: flex-start; margin-bottom: 12px; padding: 5px 8px; color: var(--teal); background: var(--teal-light); border-radius: 6px; font: .64rem var(--mono); text-transform: uppercase; }
+    .doc-card h4 { margin: 0 0 8px; font: 700 1.08rem var(--display); letter-spacing: -.03em; }
+    .doc-card p { margin: 0 0 18px; color: #5e6b7a; font-size: .85rem; flex: 1; }
+    .doc-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .doc-actions .btn { min-height: 41px; padding: 9px 14px; font-size: .8rem; }
+    dialog#certDialog { width: min(980px, 94vw); max-height: 92vh; padding: 0; border: 0; border-radius: 18px; background: var(--ink); overflow: hidden; }
+    dialog#certDialog::backdrop { background: rgba(10,18,28,.78); backdrop-filter: blur(4px); }
+    dialog#certDialog img { display: block; width: 100%; height: auto; max-height: 88vh; object-fit: contain; }
+    dialog#certDialog button { position: absolute; top: 10px; right: 10px; border: 0; border-radius: 100px; padding: 8px 14px; background: var(--lime); color: var(--ink); font: 700 .8rem var(--sans); cursor: pointer; }
+    .contact-actions { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+    .contact-actions .btn { justify-content: flex-start; }
+    @media (max-width: 920px) { .explorer-body { grid-template-columns: 1fr; } .spark-grid { grid-template-columns: repeat(2, 1fr); } .docs-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 720px) {
+      .dim-row { grid-template-columns: 1fr auto; row-gap: 6px; } .dim-track { grid-column: 1 / -1; order: 3; }
+      .docs-grid { grid-template-columns: 1fr; }
+      .contact-actions { flex-direction: row; flex-wrap: wrap; }
+      .year-tabs button { padding: 7px 10px; }
+    }
+    @media (max-width: 400px) { .spark-grid { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .hero::before { animation: none; } .dim-fill { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <a href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" onfocus="this.style.cssText='position:fixed;left:16px;top:16px;width:auto;height:auto;overflow:visible;z-index:99;background:#d7f078;color:#101c2c;padding:12px 16px;border-radius:8px'" onblur="this.style.cssText='position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden'">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav-shell">
+      <a href="#home" class="brand" aria-label="Sanchit Pande home"><span class="brand-mark">SP.</span><span>Sanchit Pande</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu&nbsp;☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#project">Featured project</a>
+        <a href="#findings">Findings</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#credentials">Credentials</a>
+        <a class="nav-cta" href="#contact">Let's connect ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="availability"><span class="pulse"></span> Open to finance opportunities</div>
+          <div class="eyebrow">Finance · Research · Governance</div>
+          <h1>Turning data<br>into <span>decisions.</span></h1>
+          <p class="hero-role">Sanchit Pande — PGDM, Financial Management</p>
+          <p class="hero-copy">I analyse financial performance, corporate disclosures and governance practices to find the story behind the numbers. My work combines financial ratio analysis, research and practical data visualisation.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#project">Explore my work <span aria-hidden="true">↘</span></a>
+            <a class="btn btn-ghost" href="assets/documents/Resume.pdf" download="Sanchit_Pande_Resume.pdf">Download resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg></a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/sanchit-pande-790a2b267" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.7H3.5V20h3.4V8.7ZM5.2 3.3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM20.5 13.4c0-3-1.6-4.9-4.2-4.9-1.4 0-2.4.7-2.9 1.5V8.7h-3.3V20h3.4v-6c0-1.6.6-2.6 1.9-2.6s1.7 1 1.7 2.6v6h3.4v-6.6Z"/></svg></a>
+          </div>
+          <div class="hero-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.3"/></svg> Delhi, India</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 6h16"/></svg> FIIB · PGDM 2025–27</span>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Governance Quality Index project snapshot">
+          <div class="panel-top"><span>Research snapshot / 01</span><span class="panel-badge">Coal India Ltd.</span></div>
+          <div class="panel-number">55.00 <small>→</small> 81.41</div>
+          <p class="panel-sub">Governance Quality Index · FY2020–21 to FY2024–25 · scale of 105</p>
+          <svg class="mini-chart" viewBox="0 0 400 150" role="img" aria-label="Governance Quality Index increased from 55.00 in FY2020–21 to 81.41 in FY2024–25">
+            <defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d7f078" stop-opacity=".25"/><stop offset="1" stop-color="#d7f078" stop-opacity="0"/></linearGradient></defs>
+            <g stroke="rgba(255,255,255,.13)" stroke-dasharray="3 6"><path d="M12 25H388"/><path d="M12 65H388"/><path d="M12 105H388"/></g>
+            <path d="M16 112 L108 58 L200 51 L292 53 L384 40 L384 135 L16 135 Z" fill="url(#areaFill)"/>
+            <path d="M16 112 L108 58 L200 51 L292 53 L384 40" fill="none" stroke="#d7f078" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#101c2c" stroke="#d7f078" stroke-width="2.5"><circle cx="16" cy="112" r="5"/><circle cx="108" cy="58" r="5"/><circle cx="200" cy="51" r="5"/><circle cx="292" cy="53" r="5"/><circle cx="384" cy="40" r="5"/></g>
+            <g fill="#d7f078" font-family="DM Mono, monospace" font-size="10"><text x="16" y="97">55.00</text><text x="384" y="25" text-anchor="end">81.41</text></g>
+          </svg>
+          <div class="chart-years"><span>FY21</span><span>FY22</span><span>FY23</span><span>FY24</span><span>FY25</span></div>
+          <hr class="panel-divider">
+          <div class="panel-foot"><div><small>Method</small><strong>GQI + ratio analysis</strong></div><div><small>Study design</small><strong>5 annual observations</strong></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Core focus areas"><div class="wrap ticker-inner"><span>Financial analysis</span><span>Corporate governance</span><span>Equity derivatives</span><span>Data storytelling</span></div></div>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">A little about me</div><h2>Curiosity, with<br>a financial lens.</h2></div><p>I enjoy working at the intersection of financial statements, business context and transparent research. The goal is not just to calculate a metric, but to understand what it can — and cannot — tell us.</p></div>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>I am pursuing a <strong>PGDM in Financial Management at the Fortune Institute of International Business (FIIB), New Delhi</strong>, after completing a B.Com (Honours) at Graphic Era Hill University, Bhimtal.</p>
+            <p>During my corporate internship with <strong>Coal India Limited</strong>, I developed a seven-dimension Governance Quality Index and examined its relationship with key financial indicators across five financial years. The project strengthened my approach to structured research, Excel-based analysis and communicating limitations clearly.</p>
+            <p>I am interested in opportunities where analytical thinking, careful research and business judgement support better financial decisions.</p>
+          </div>
+          <aside class="interest-card reveal"><div><div class="eyebrow" style="color:var(--lime)">What I'm exploring</div><h3 style="margin-top:12px">Areas of interest</h3><ul class="interest-list"><li>Equity research & investment analysis</li><li>Financial analysis & planning</li><li>Corporate finance & valuation</li><li>Governance, risk & compliance</li><li>Investment and wealth management</li><li>Financial data analytics</li></ul></div></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="project">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">Selected work / 01</div><h2>Research with<br>a real-world lens.</h2></div><p>My featured project brings governance disclosures and financial indicators into one longitudinal case study. The emphasis is on transparent methodology, measurable findings and responsible interpretation.</p></div>
+        <article class="project-feature reveal">
+          <div class="project-banner">
+            <div class="project-banner-copy"><div class="eyebrow">Corporate Internship Project · 2026</div><h3>Corporate governance quality & financial performance</h3><p>A five-year analysis of Coal India Limited, covering FY2020–21 to FY2024–25.</p></div>
+            <div class="project-art" aria-hidden="true"><div class="orbit"></div><div class="orbit two"></div><div class="orbit three"></div><div class="orbit-dot"></div><span class="art-label">GQI / FINANCIAL SIGNALS</span></div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span class="pill">Coal India Limited</span><span class="pill">Company Secretarial Department</span><span class="pill">April – July 2026</span><span class="pill">Research · Excel · Ratios</span></div>
+            <div class="project-body-grid">
+              <div><h4>Research question</h4><p>How did corporate governance quality and financial performance move together at Coal India Limited across five financial years?</p><h4 style="margin-top:22px">Approach</h4><p>I reviewed annual reports and Corporate Governance Reports, scored seven governance dimensions, calculated profitability and return ratios, and decomposed ROE using a three-stage DuPont framework.</p></div>
+              <div><h4>My contribution</h4><ul class="check-list"><li>Constructed a seven-dimension Governance Quality Index (105-point scale).</li><li>Calculated Net Profit Margin, ROCE, EBITDA Margin and ROE in Excel.</li><li>Used three-stage DuPont analysis to examine margin, asset turnover and leverage.</li><li>Calculated Pearson correlations and reported them as descriptive associations.</li><li>Designed the Governance-Performance Analytics System (GPAS) concept and demonstrated a prototype to Company Secretarial leadership (15 June 2026).</li></ul></div>
+            </div>
+            <div class="note"><strong>Scope matters:</strong> This is a single-company study with five annual observations (n = 5). The patterns are descriptive; correlation does not establish causation. Because the sample is so small, VAR modelling and Granger causality tests were deliberately not applied. GPAS was a demonstration-stage prototype (Level 1) and is not a deployed company system.</div>
+          </div>
+        </article>
+        <div class="two-card-grid" style="margin-top:20px">
+          <article class="soft-card reveal"><span class="mini-tag">Academic team project</span><h3>Open-ended vs. closed-ended mutual funds</h3><p>Compared three-year risk-adjusted performance across eight debt and equity mutual funds, using Sharpe Ratio, standard deviation and NAV volatility to explore liquidity and stability trade-offs. Led a five-member team, allocating tasks and consolidating the analysis.</p></article>
+          <article class="soft-card reveal"><span class="mini-tag">Analytics concept</span><h3>Governance-Performance Analytics System</h3><p>Proposed an integrated monitoring concept for governance indicators, financial measures, data-quality checks and visual reporting. The prototype used Google Sheets, NotebookLM and Google Data Studio; additional automation and organisational deployment remain proposed, not validated outcomes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="findings">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">Research dashboard</div><h2>The numbers,<br>in context.</h2></div><p>Selected results from the Coal India case study. Charts use the figures reported in my project and are intended to make the five-year trends easier to explore.</p></div>
+        <div class="metric-grid reveal">
+          <div class="metric-card"><span class="label">GQI score</span><strong><span data-count="81.41">81.41</span><span style="color:var(--teal)">/105</span></strong><p>FY2024–25 · up from 55.00</p></div>
+          <div class="metric-card"><span class="label">Net profit margin</span><strong><span data-count="24.66">24.66</span><span style="font-size:1rem;letter-spacing:0">%</span></strong><p>FY2024–25 · up from 14.11%</p></div>
+          <div class="metric-card"><span class="label">ROCE</span><strong><span data-count="21.74">21.74</span><span style="font-size:1rem;letter-spacing:0">%</span></strong><p>FY2024–25 · peaked at 26.61%</p></div>
+          <div class="metric-card"><span class="label">EBITDA margin</span><strong><span data-count="36.02">36.02</span><span style="font-size:1rem;letter-spacing:0">%</span></strong><p>FY2024–25 · up from 23.17%</p></div>
+        </div>
+        <div class="data-grid">
+          <article class="data-card reveal"><h3>Governance Quality Index</h3><p class="sub">Total score · maximum 105 points</p><div class="bar-chart" role="img" aria-label="GQI scores: FY21 55.00, FY22 75.77, FY23 78.46, FY24 77.68, FY25 81.41">
+            <div class="bar-row"><span class="bar-year">FY20–21</span><div class="bar-track"><div class="bar-fill" style="width:52.38%"></div></div><span class="bar-value">55.00</span></div>
+            <div class="bar-row"><span class="bar-year">FY21–22</span><div class="bar-track"><div class="bar-fill" style="width:72.16%"></div></div><span class="bar-value">75.77</span></div>
+            <div class="bar-row"><span class="bar-year">FY22–23</span><div class="bar-track"><div class="bar-fill" style="width:74.72%"></div></div><span class="bar-value">78.46</span></div>
+            <div class="bar-row"><span class="bar-year">FY23–24</span><div class="bar-track"><div class="bar-fill" style="width:73.98%"></div></div><span class="bar-value">77.68</span></div>
+            <div class="bar-row"><span class="bar-year">FY24–25</span><div class="bar-track"><div class="bar-fill" style="width:77.53%"></div></div><span class="bar-value">81.41</span></div>
+          </div></article>
+          <article class="data-card reveal"><h3>Financial ratio snapshot</h3><p class="sub">Reported values · FY2020–21 vs. FY2024–25</p><div class="ratio-list" role="table" aria-label="Financial ratio comparison between FY2020–21 and FY2024–25">
+            <div class="ratio-row header" role="row"><span role="columnheader">Metric</span><span role="columnheader">FY21</span><span role="columnheader">FY25</span></div>
+            <div class="ratio-row" role="row"><span role="cell">Net Profit Margin</span><span role="cell">14.11%</span><span class="final" role="cell">24.66%</span></div>
+            <div class="ratio-row" role="row"><span role="cell">ROCE</span><span role="cell">15.42%</span><span class="final" role="cell">21.74%</span></div>
+            <div class="ratio-row" role="row"><span role="cell">EBITDA Margin</span><span role="cell">23.17%</span><span class="final" role="cell">36.02%</span></div>
+            <div class="ratio-row" role="row"><span role="cell">Asset Turnover</span><span role="cell">0.56×</span><span class="final" role="cell">0.55×</span></div>
+            <div class="ratio-row" role="row"><span role="cell">Financial Leverage</span><span role="cell">4.43×</span><span class="final" role="cell">2.63×</span></div>
+            <div class="ratio-row" role="row"><span role="cell">Return on Equity</span><span role="cell">34.79%</span><span class="final" role="cell">35.68%</span></div>
+          </div></article>
+        </div>
+        <div class="reveal" style="margin-top:30px"><div class="eyebrow">Pearson correlation with GQI</div><div class="corr-grid">
+          <div class="corr-card"><small>Net Profit Margin</small><strong>+0.73</strong><span>Positive association</span></div>
+          <div class="corr-card"><small>ROCE</small><strong>+0.74</strong><span>Positive association</span></div>
+          <div class="corr-card"><small>EBITDA Margin</small><strong>+0.76</strong><span>Positive association</span></div>
+          <div class="corr-card"><small>Financial Leverage</small><strong>−0.73</strong><span>Negative association</span></div>
+        </div><p class="data-disclaimer">Interpretation note: correlations are calculated from only five annual observations for one company; no causal claim or statistical significance claim is made. Wider economic conditions, commodity-price cycles and other factors may influence financial performance. GQI scores also depend on the chosen scoring and weighting methodology.</p></div>
+        <div class="reveal panel-card" id="explorer" style="margin-top:30px">
+          <div class="panel-head"><div><div class="eyebrow">Inside the index</div><h3>What moved the score?</h3></div><div class="year-tabs" role="tablist" aria-label="Select financial year" id="yearTabs"></div></div>
+          <div class="explorer-body"><div class="dim-list" id="dimList" aria-live="polite"></div><aside class="explorer-side"><div class="big" id="exTotal">—</div><div class="big-sub" id="exSub"></div><p id="exNote"></p></aside></div>
+        </div>
+        <div class="reveal panel-card" style="margin-top:22px">
+          <div class="panel-head"><div><div class="eyebrow">DuPont decomposition</div><h3>Why ROE peaked, then eased</h3></div></div>
+          <div class="spark-grid" id="sparkGrid"></div>
+          <p class="data-disclaimer" style="margin-top:18px">ROE = Net Profit Margin × Asset Turnover × Financial Leverage. Margins expanded and leverage fell, while asset turnover stayed within 0.55×–0.62×. ROE therefore peaked at 46.31% in FY2022–23 and eased to 35.68% by FY2024–25, even though margins stayed well above their FY2020–21 level.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="experience">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">Experience & involvement</div><h2>Work, service<br>& teamwork.</h2></div><p>Experiences that have helped me build research discipline, organise information clearly and coordinate with people across different responsibilities.</p></div>
+        <div class="experience-grid">
+          <div class="timeline-label">Experience timeline</div>
+          <div class="timeline-list">
+            <article class="timeline-item reveal"><span class="date">20 Apr – 3 Jul 2026 · Kolkata</span><h3>Corporate Internship Project</h3><p class="org">Coal India Limited · Company Secretarial Department</p><ul><li>Reviewed annual reports and governance disclosures, mapping board composition, committee, CSR and transparency indicators against SEBI LODR and Companies Act, 2013 requirements.</li><li>Built a 105-point GQI, performed ratio and DuPont analysis, and analysed descriptive correlations.</li><li>Designed a GPAS concept and demonstrated a prototype, as documented in my AI case write-up; it was not deployed in company systems.</li></ul></article>
+            <article class="timeline-item reveal"><span class="date">2 – 17 January 2026 · Jaipur</span><h3>Event Coordinator Intern</h3><p class="org">Radio Udaan</p><ul><li>Coordinated outreach to around 40 participants to support on-site event management.</li><li>Built an Excel database tracking 100+ guests to streamline event logistics.</li></ul></article>
+          </div>
+        </div>
+        <div class="two-card-grid" style="margin-top:45px">
+          <article class="soft-card reveal"><span class="mini-tag">Leadership</span><h3>NCC “C” Certificate · 79 UKBN</h3><p>Participated in National Cadet Corps training and camp activities, developing discipline, teamwork and a structured approach to responsibilities.</p></article>
+          <article class="soft-card reveal"><span class="mini-tag">Community service · 2022–present</span><h3>ISKCON · Food for Life</h3><p>Helped coordinate around 15 volunteers for community meal-distribution activities, supporting practical teamwork and community engagement.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">Skills & toolkit</div><h2>Built around<br>clear analysis.</h2></div><p>A practical toolkit drawn from internship work, academic projects and finance-focused learning.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><div class="skill-card-head"><span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5m0 14h16"/><path d="m7 15 4-4 3 2 5-7"/></svg></span><h3>Financial analysis</h3></div><div class="tags"><span class="tag">Financial statements</span><span class="tag">Ratio analysis</span><span class="tag">DuPont analysis</span><span class="tag">Profitability metrics</span><span class="tag">Mutual fund risk measures</span><span class="tag">Sharpe Ratio</span></div></article>
+          <article class="skill-card reveal"><div class="skill-card-head"><span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 20 7v5c0 5-3.4 7.7-8 9-4.6-1.3-8-4-8-9V7l8-4Z"/><path d="m8.5 12 2.3 2.3 4.8-5"/></svg></span><h3>Governance & compliance</h3></div><div class="tags"><span class="tag">GQI construction</span><span class="tag">Annual report analysis</span><span class="tag">Board & committee review</span><span class="tag">CSR disclosures</span><span class="tag">SEBI LODR</span><span class="tag">Companies Act, 2013</span></div></article>
+          <article class="skill-card reveal"><div class="skill-card-head"><span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11m5-11v11m5-11v11"/></svg></span><h3>Data & productivity tools</h3></div><div class="tags"><span class="tag">Microsoft Excel</span><span class="tag">Google Sheets</span><span class="tag">Google Data Studio</span><span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">NotebookLM</span><span class="tag">Data visualisation</span></div></article>
+          <article class="skill-card reveal"><div class="skill-card-head"><span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8.5 12 3l9 5.5-9 5.5-9-5.5Z"/><path d="M3 13.5 12 19l9-5.5M3 18l9 5 9-5"/></svg></span><h3>Markets & research</h3></div><div class="tags"><span class="tag">Equity derivatives</span><span class="tag">Research writing</span><span class="tag">Pearson correlation</span><span class="tag">Corporate finance</span><span class="tag">Mutual funds</span><span class="tag">Disclosure review</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="credentials">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">Credentials & education</div><h2>Learning in motion.</h2></div><p>Formal education and market-focused learning that complement the practical work featured in this portfolio.</p></div>
+        <div class="credential-grid">
+          <article class="credential-main reveal"><div class="credential-seal">NISM<br>VIII</div><div><h3>NISM-Series-VIII: Equity Derivatives Certification Examination</h3><p>National Institute of Securities Markets · Passed</p><div class="credential-details"><span>Exam: <strong>05 OCT 2026</strong></span><span>Score: <strong>64 / 100</strong></span><span>Result: <strong>PASS</strong></span><span>Valid till: <strong>04 OCT 2029</strong></span></div></div></article>
+          <aside class="credential-side reveal"><h3>Additional learning</h3><div class="course"><strong>Investment Banking Masterclass</strong><span>2023 · Financial markets and investment banking concepts</span></div><div class="course"><strong>Financial Modeling and Forecasting Financial Statements</strong><span>Coursework in financial modeling and forecasting</span></div></aside>
+        </div>
+        <div class="education-list" style="margin-top:20px">
+          <article class="education-card reveal"><span class="date">2025–2027 · In progress</span><h3>PGDM — Financial Management</h3><p>Fortune Institute of International Business (FIIB), New Delhi</p></article>
+          <article class="education-card reveal"><span class="date">Completed</span><h3>Bachelor of Commerce (Honours)</h3><p>Graphic Era Hill University, Bhimtal</p></article>
+        </div>
+        <div class="docs-head reveal"><div class="eyebrow">Documents</div><h3>Download &amp; verify</h3></div>
+        <div class="docs-grid">
+          <article class="doc-card reveal"><div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div><span class="mini-tag">PDF · 1 page · 274 KB</span><h4>Resume</h4><p>One-page CV covering education, internship, projects, skills and certifications.</p><div class="doc-actions"><a class="btn btn-dark" href="assets/documents/Resume.pdf" download="Sanchit_Pande_Resume.pdf">Download <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg></a><a class="btn btn-outline" href="assets/documents/Resume.pdf" target="_blank" rel="noopener noreferrer">View ↗</a></div></article>
+          <article class="doc-card reveal"><a class="doc-thumb" id="certOpen" href="assets/documents/NISM_Series_VIII_Certificate.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open NISM certificate preview"><img src="assets/documents/NISM_Series_VIII_Certificate.jpg" alt="NISM Series VIII Equity Derivatives certificate with personal ID numbers redacted" loading="lazy"></a><span class="mini-tag">JPG · 128 KB · IDs redacted</span><h4>NISM-Series-VIII certificate</h4><p>Public copy with PAN, registration and enrolment numbers covered. Verifiable via the NISM Skills Registry.</p><div class="doc-actions"><a class="btn btn-dark" href="assets/documents/NISM_Series_VIII_Certificate.jpg" download="NISM_Series_VIII_Certificate.jpg">Download <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg></a></div></article>
+          <article class="doc-card reveal"><div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div><span class="mini-tag">On request</span><h4>CIP research report</h4><p>Full Coal India Limited report with methodology, data appendix and limitations. Shared on request.</p><div class="doc-actions"><a class="btn btn-outline" href="mailto:sanchitpandey159@gmail.com?subject=Request%20for%20CIP%20report">Request a copy ↗</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap"><div class="contact-panel reveal"><div><div class="eyebrow">Start a conversation</div><h2>Have a finance project or opportunity in mind?</h2><p>I’m open to connecting about internships and entry-level opportunities in financial analysis, equity research, corporate finance and governance analytics.</p></div><div class="contact-actions"><a class="btn btn-primary" href="mailto:sanchitpandey159@gmail.com">Email Sanchit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a><a class="btn btn-ghost" href="https://www.linkedin.com/in/sanchit-pande-790a2b267" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.7H3.5V20h3.4V8.7ZM5.2 3.3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM20.5 13.4c0-3-1.6-4.9-4.2-4.9-1.4 0-2.4.7-2.9 1.5V8.7h-3.3V20h3.4v-6c0-1.6.6-2.6 1.9-2.6s1.7 1 1.7 2.6v6h3.4v-6.6Z"/></svg></a><a class="btn btn-ghost" href="assets/documents/Resume.pdf" download="Sanchit_Pande_Resume.pdf">Resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg></a></div></div></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span><strong>Sanchit Pande</strong> · Finance & Governance Analytics · 2026</span><div class="footer-links"><a href="mailto:sanchitpandey159@gmail.com">Email</a><a href="https://www.linkedin.com/in/sanchit-pande-790a2b267" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="assets/documents/Resume.pdf" download="Sanchit_Pande_Resume.pdf">Resume</a><a href="https://github.com/SanchitPande94/E-Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a><a class="back-top" href="#home">Back to top ↑</a></div></div></footer>
+  <script>
+    (() => {
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('navLinks');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.innerHTML = open ? 'Close&nbsp;×' : 'Menu&nbsp;☰';
+        });
+        nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.innerHTML = 'Menu&nbsp;☰';
+        }));
+      }
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        }), { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+      } else revealEls.forEach(el => el.classList.add('visible'));
+    })();
+  </script>
+
+  <dialog id="certDialog" aria-label="NISM certificate preview"><button type="button" id="certClose">Close ×</button><img src="assets/documents/NISM_Series_VIII_Certificate.jpg" alt="NISM Series VIII Equity Derivatives certificate, personal ID numbers redacted"></dialog>
+  <script>
+    (() => {
+      /* Verified data: Project_cip.xlsx (GQI + Ratios sheets), matches CIP report tables 6.1 / 6.2 / A.1 / A.2 */
+      const years = ['FY20–21','FY21–22','FY22–23','FY23–24','FY24–25'];
+      const dims = [
+        ['Board Independence', 20, [0,10,10,9.33,7.69]],
+        ['Board Diversity', 15, [0,0.83,0.71,0.67,7.31]],
+        ['Board Activity', 15, [15,15,15,15,15]],
+        ['Attendance', 10, [10,9.94,9.75,9.68,9.74]],
+        ['Audit Committee Quality', 20, [10,20,18,18,16.67]],
+        ['CSR Compliance', 15, [15,15,15,15,15]],
+        ['Disclosure & Transparency', 10, [5,5,10,10,10]]
+      ];
+      const totals = [55.00,75.77,78.46,77.68,81.41];
+      const indep = [0,6,7,7,5], board = [7,12,14,15,13];
+      const f = n => (Math.round(n*100)/100).toFixed(2);
+      const tabs = document.getElementById('yearTabs'), list = document.getElementById('dimList');
+      const total = document.getElementById('exTotal'), sub = document.getElementById('exSub'), note = document.getElementById('exNote');
+      function show(i) {
+        tabs.querySelectorAll('button').forEach((b,k) => b.setAttribute('aria-selected', String(k===i)));
+        list.innerHTML = dims.map(([n,max,v]) => {
+          const d = i ? v[i]-v[i-1] : 0;
+          const delta = i && Math.abs(d) >= 0.005 ? `<em class="${d>0?'up':'down'}">${d>0?'+':'−'}${f(Math.abs(d))}</em>` : '';
+          return `<div class="dim-row"><span class="dim-name">${n}</span><div class="dim-track"><div class="dim-fill" style="width:${v[i]/max*100}%"></div></div><span class="dim-val">${f(v[i])} / ${max}${delta}</span></div>`;
+        }).join('');
+        total.innerHTML = `${f(totals[i])}<small> / 105</small>`;
+        sub.textContent = `${years[i]} · ${indep[i]} of ${board[i]} directors independent`;
+        if (!i) { note.textContent = 'Baseline year: the board had no independent directors, and Audit Committee and Disclosure scores were still low.'; return; }
+        const ch = dims.map(([n,,v]) => [n, v[i]-v[i-1]]).filter(x => Math.abs(x[1]) >= 1).sort((a,b) => Math.abs(b[1])-Math.abs(a[1]));
+        const delta = totals[i]-totals[i-1];
+        let t = `${delta>=0?'+':'−'}${f(Math.abs(delta))} points vs ${years[i-1]}.`;
+        if (ch.length) t += ' Biggest movers: ' + ch.slice(0,3).map(([n,d]) => `${n} (${d>0?'+':'−'}${f(Math.abs(d))})`).join(', ') + '.';
+        if (i===1) t += ' The jump coincided with the first independent-director appointments (0 → 6); it is an association, not proof of cause.';
+        if (i===4) t += ' Independent directors fell from 7 to 5, while Board Diversity rose.';
+        note.textContent = t;
+      }
+      if (tabs && list) {
+        years.forEach((y,i) => { const b = document.createElement('button'); b.type='button'; b.setAttribute('role','tab'); b.textContent = y; b.addEventListener('click', () => show(i)); tabs.appendChild(b); });
+        show(4);
+      }
+      /* DuPont sparklines */
+      const spark = [
+        ['Net profit margin', [14.11,15.82,20.37,26.28,24.66], v => v.toFixed(2)+'%', 'Expanded', ''],
+        ['Asset turnover', [0.56,0.61,0.62,0.60,0.55], v => v.toFixed(2)+'×', 'Broadly flat', 'flat'],
+        ['Financial leverage', [4.43,4.18,3.66,2.87,2.63], v => v.toFixed(2)+'×', 'Deleveraged', ''],
+        ['Return on equity', [34.79,40.25,46.31,45.22,35.68], v => v.toFixed(2)+'%', 'Peaked FY23', 'flat']
+      ];
+      const grid = document.getElementById('sparkGrid');
+      if (grid) grid.innerHTML = spark.map(([name,v,fmt,tr,cls]) => {
+        const mn = Math.min(...v), mx = Math.max(...v), W = 160, H = 56, pad = 6;
+        const pts = v.map((x,k) => [pad + k*(W-2*pad)/4, H-pad - (mx===mn?0.5:(x-mn)/(mx-mn))*(H-2*pad)]);
+        const line = pts.map(p => p.join(',')).join(' ');
+        const dots = pts.map((p,k) => `<circle cx="${p[0]}" cy="${p[1]}" r="${k===4?4:2.5}" fill="${k===4?'#126f68':'#fffefa'}" stroke="#126f68" stroke-width="1.8"/>`).join('');
+        return `<div class="spark"><div class="label">${name}</div><div class="range">${fmt(v[0])} <i>→</i> ${fmt(v[4])}</div><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${name} by year: ${v.map(fmt).join(', ')}"><polyline points="${line}" fill="none" stroke="#126f68" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>${dots}</svg><span class="trend ${cls}">${tr}</span></div>`;
+      }).join('');
+      /* count-up on metric cards */
+      const counters = document.querySelectorAll('[data-count]');
+      const run = el => { const end = parseFloat(el.dataset.count), t0 = performance.now(); const tick = t => { const p = Math.min((t-t0)/1100,1); el.textContent = (end*(1-Math.pow(1-p,3))).toFixed(2); if (p<1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+      if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), {threshold:.6});
+        counters.forEach(c => io.observe(c));
+      }
+      /* scroll progress + active nav */
+      const bar = document.getElementById('progress');
+      const links = [...document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)')];
+      const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+      const onScroll = () => {
+        const h = document.documentElement; bar.style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+        let cur = -1; secs.forEach((s,k) => { if (s && s.getBoundingClientRect().top < 140) cur = k; });
+        links.forEach((a,k) => a.classList.toggle('active', k===cur));
+      };
+      addEventListener('scroll', onScroll, {passive:true}); onScroll();
+      /* certificate lightbox (falls back to opening the image in a new tab) */
+      const dlg = document.getElementById('certDialog'), open = document.getElementById('certOpen');
+      if (dlg && dlg.showModal && open) {
+        open.addEventListener('click', e => { e.preventDefault(); dlg.showModal(); });
+        document.getElementById('certClose').addEventListener('click', () => dlg.close());
+        dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+      }
+    })();
+  </script>
+</body>
+</html>
